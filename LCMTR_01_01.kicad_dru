@@ -1,0 +1,13 @@
+(version 1)
+#(rule HV_LV
+#(constraint creepage (min 8.5mm))
+#(condition "A.hasNetclass('HV_2') && !B.hasNetclass('HV_2') && (A.Layer == 'F.Cu' || A.Layer == 'B.Cu')")
+#)
+#(rule HV_LV_IN
+#(constraint creepage (min 10mm))
+#(condition "A.hasNetclass('HV_2') && !B.hasNetclass('HV_2') && ((A.Layer == 'F.Cu' && B.Layer == 'In1.Cu') || (A.Layer == 'In1.Cu' && B.Layer == 'F.Cu') ||(A.Layer == 'B.Cu' && B.Layer == 'In2.Cu') ||(A.Layer == 'In2.Cu' && B.Layer == 'B.Cu'))"))
+
+#(rule ISO_HV
+#(constraint creepage (min 7mm))
+#(condition "A.hasNetclass('ISO') && B.hasNetclass('NISO') && (A.Layer == 'F.Cu' || A.Layer == 'B.Cu')")
+#)
